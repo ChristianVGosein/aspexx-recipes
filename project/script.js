@@ -1,49 +1,4 @@
-document.addEventListener('DOMContentLoaded' , event => {
 
-    try{
-      let app = firebase.app();
-      let features = ['auth', 'database', 'messaging', 'storage']. filter (feature => typeof app[feature] ==='funtion');
-      document.getElementById('load').innerHTML = 'Firebase SDK Loaded with ${features.join(', ')}';
-    } catch(e){
-      console.error(e);
-      document.getElementById('load').innerHTML = 'Error Loading the Firebase SDK, check the console. ';
-    }
-  
-    // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyBtP4p--596UVd4tgLxmmAHmigB8XehtnI",
-    authDomain: "aspexx-1354e.firebaseapp.com",
-    projectId: "aspexx-1354e",
-    storageBucket: "aspexx-1354e.appspot.com",
-    messagingSenderId: "847114837385",
-    appId: "1:847114837385:web:e3320d3986c216a8925558",
-    measurementId: "G-MQ7V40NVVY"
-  };
-  
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  
-  });
-  
-  // Import Firebase Auth functions
-  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
-  import { initializeApp } from 'firebase/app';
-  import { signIn, logout, setAuthListeners } from './auth.js';
-  import { getBooks, getReviews, createReview, deleteReview } from './data.js';
-  
-  // Firebase configuration (replace with your actual config object)
-  const firebaseConfig = {
-    apiKey: "AIzaSyBtP4p--596UVd4tgLxmmAHmigB8XehtnI",
-    authDomain: "aspexx-1354e.firebaseapp.com",
-      // other config properties
-  };
-  
-  // Initialize Firebase App
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  
   // Element selectors
   let loginBtn = document.querySelector('#loginBtn');
   let logoutBtn = document.querySelector('#logoutBtn');
